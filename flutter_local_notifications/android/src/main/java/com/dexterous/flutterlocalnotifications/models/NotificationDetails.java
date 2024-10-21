@@ -40,6 +40,7 @@ public class NotificationDetails implements Serializable {
   private static final String ICON = "icon";
   private static final String PRIORITY = "priority";
   private static final String PLAY_SOUND = "playSound";
+  private static final String CRITICAL = "critical";
   private static final String SOUND = "sound";
   private static final String SOUND_SOURCE = "soundSource";
   private static final String ENABLE_VIBRATION = "enableVibration";
@@ -139,6 +140,7 @@ public class NotificationDetails implements Serializable {
   public Integer importance;
   public Integer priority;
   public Boolean playSound;
+  public Boolean critical;
   public String sound;
   public SoundSource soundSource;
   public Boolean enableVibration;
@@ -262,6 +264,8 @@ public class NotificationDetails implements Serializable {
       readSoundInformation(notificationDetails, platformChannelSpecifics);
       notificationDetails.enableVibration =
           (Boolean) platformChannelSpecifics.get(ENABLE_VIBRATION);
+      notificationDetails.critical =
+          (Boolean) platformChannelSpecifics.get(CRITICAL);
       notificationDetails.vibrationPattern =
           (long[]) platformChannelSpecifics.get(VIBRATION_PATTERN);
       readGroupingInformation(notificationDetails, platformChannelSpecifics);
@@ -381,7 +385,7 @@ public class NotificationDetails implements Serializable {
     notificationDetails.enableLights = (Boolean) platformChannelSpecifics.get(ENABLE_LIGHTS);
     notificationDetails.ledOnMs = (Integer) platformChannelSpecifics.get(LED_ON_MS);
     notificationDetails.ledOffMs = (Integer) platformChannelSpecifics.get(LED_OFF_MS);
-  }
+  } 
 
   private static void readChannelInformation(
       NotificationDetails notificationDetails, Map<String, Object> platformChannelSpecifics) {
@@ -459,7 +463,7 @@ public class NotificationDetails implements Serializable {
   @SuppressWarnings("unchecked")
   private static ArrayList<MessageDetails> readMessages(ArrayList<Map<String, Object>> messages) {
     ArrayList<MessageDetails> result = new ArrayList<>();
-    if (messages != null) {
+    if (messages != null) { 
       for (Map<String, Object> messageData : messages) {
         result.add(
             new MessageDetails(
