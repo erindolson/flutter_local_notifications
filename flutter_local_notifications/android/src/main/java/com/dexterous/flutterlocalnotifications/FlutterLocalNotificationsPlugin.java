@@ -1201,7 +1201,7 @@ public class FlutterLocalNotificationsPlugin
               notificationChannelDetails.importance);
       notificationChannel.setDescription(notificationChannelDetails.description);
       notificationChannel.setGroup(notificationChannelDetails.groupId);
-      notificationChannel.setBypassDnd( notificationChannelDetails.isCritical);
+      notificationChannel.setBypassDnd(notificationChannelDetails.critical);
       if (notificationChannelDetails.playSound) {
         Integer audioAttributesUsage =
             notificationChannelDetails.audioAttributesUsage != null
