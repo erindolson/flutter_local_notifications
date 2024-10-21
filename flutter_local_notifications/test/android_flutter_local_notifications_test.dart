@@ -2515,6 +2515,7 @@ void main() {
           'ledColorRed': null,
           'ledColorGreen': null,
           'ledColorBlue': null,
+          'critical': false,
           'audioAttributesUsage': AudioAttributesUsage.notification.value,
           'channelAction':
               AndroidNotificationChannelAction.createIfNotExists.index,
@@ -2538,6 +2539,7 @@ void main() {
             enableVibration: false,
             ledColor: Color.fromARGB(255, 255, 0, 0),
             audioAttributesUsage: AudioAttributesUsage.alarm,
+            critical: true,
           ));
       expect(log, <Matcher>[
         isMethodCall('createNotificationChannel', arguments: <String, Object?>{
@@ -2555,6 +2557,7 @@ void main() {
           'ledColorRed': 255,
           'ledColorGreen': 0,
           'ledColorBlue': 0,
+          'critical': true,
           'audioAttributesUsage': AudioAttributesUsage.alarm.value,
           'channelAction':
               AndroidNotificationChannelAction.createIfNotExists.index,

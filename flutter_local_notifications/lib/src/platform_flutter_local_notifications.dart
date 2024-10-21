@@ -539,6 +539,7 @@ class AndroidFlutterLocalNotificationsPlugin
               enableVibration: a['enableVibration'],
               vibrationPattern: a['vibrationPattern'],
               ledColor: Color(a['ledColor']),
+              critical: a['critical'],
               audioAttributesUsage: AudioAttributesUsage.values.firstWhere(
                 // ignore: always_specify_types
                 (e) => e.value == a['audioAttributesUsage'],

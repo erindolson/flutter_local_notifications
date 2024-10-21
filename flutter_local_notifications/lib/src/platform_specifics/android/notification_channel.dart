@@ -21,6 +21,7 @@ class AndroidNotificationChannel {
     this.enableLights = false,
     this.ledColor,
     this.audioAttributesUsage = AudioAttributesUsage.notification,
+    this.critical = false,
   });
 
   /// The channel's id.
@@ -86,4 +87,6 @@ class AndroidNotificationChannel {
   /// such as alarm or ringtone set in [`AudioAttributes.Builder`](https://developer.android.com/reference/android/media/AudioAttributes.Builder#setUsage(int))
   /// https://developer.android.com/reference/android/media/AudioAttributes
   final AudioAttributesUsage audioAttributesUsage;
+
+  final bool critical;
 }
